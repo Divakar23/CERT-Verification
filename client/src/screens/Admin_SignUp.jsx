@@ -27,16 +27,17 @@ export default function NotAvailable() {
 provider && template();
 }, []);
 
-async function writeData() {
-  const { contract } = state;
-  const username = document.querySelector("#username").value;
-  const password = document.querySelector("#password").value;
-  console.log(username + password);
-  await contract.methods
-    .addCredentials(username, password)
-    .send({ from: "0x33fdb7680320F831C5C8219056819E22Fb15c62D", gas: 2000000 });
-  window.location.reload();
-}
+async function admin_writeData() {
+    const { contract } = state;
+    const username = document.querySelector("#username").value;
+    const password = document.querySelector("#password").value;
+    const id = document.querySelector("#id").value
+    console.log(username + password);
+    await contract.methods
+      .adminaddCredentials(id, username, password)
+      .send({ from: "0x33fdb7680320F831C5C8219056819E22Fb15c62D", gas: 2000000 });
+    window.location.reload();
+  }
   return (
     <>
     <div>
@@ -46,13 +47,18 @@ async function writeData() {
         </div>
 
 
+        <div>ID:</div>
+        <div>
+          <input type='text' id="id" required='required'></input>
+        </div>
+
         <div>Password:</div>
         <div>
           <input type='text' id="password" required='required'></input>
         </div>
 
 
-        <button onClick={writeData} className="button button2">Submit</button>
+        <button onClick={admin_writeData} className="button button2">Submit</button>
       </div>
       </>
   )

@@ -9,6 +9,7 @@ import Admin from "./screens/Admin"
 import Login from "./screens/Login"
 import NotFound from "./screens/NotFound"
 import SignUp from "./screens/SignUp"
+import AdminSignUp from "./screens/Admin_SignUp"
 
 
 function App() {
@@ -66,17 +67,7 @@ function App() {
     window.location.reload();
   }
 
-  async function admin_writeData() {
-    const { contract } = state;
-    const username = document.querySelector("#avusername").value;
-    const password = document.querySelector("#avpassword").value;
-    const id = document.querySelector("#avid").value
-    console.log(username + password);
-    await contract.methods
-      .adminaddCredentials(id, username, password)
-      .send({ from: "0x33fdb7680320F831C5C8219056819E22Fb15c62D", gas: 2000000 });
-    window.location.reload();
-  }
+  
 
 
   return (
@@ -86,25 +77,12 @@ function App() {
         <Route path='/signup' element={<SignUp />} />
         <Route path='/login' element={<Login />} />
         <Route path='/admin' element={<Admin />} />
+        <Route path='/asignup' element={<AdminSignUp />}/>
         <Route path='*' element={<NotFound />} />
       </Routes>
     </>
     // <>
-    //   <div>
-    //     <div>Username:</div>
-    //     <div>
-    //       <input type='text' id="username" required='required'></input>
-    //     </div>
-
-
-    //     <div>Password:</div>
-    //     <div>
-    //       <input type='text' id="password" required='required'></input>
-    //     </div>
-
-
-    //     <button onClick={writeData} className="button button2">Submit</button>
-    //   </div>
+      
 
     //   <div>
     //     <div>Username:</div>
