@@ -5,7 +5,6 @@ contract valid{
     struct certificate{
         string name;
         string id;
-        int expiration_date;
         string course_name;
         string organization;
     }
@@ -21,12 +20,11 @@ contract valid{
     string m1="legit";
     string m2="not legit";
 
-    function addUser(string memory _name,string memory _id,int date,string memory _course_name
+    function addUser(string memory _name,string memory _id,string memory _course_name
     ,string memory _organization) public {
         certificate memory cn=certificate({
             name:_name,
             id:_id,
-            expiration_date:date,
             course_name:_course_name,
             organization:_organization
         });

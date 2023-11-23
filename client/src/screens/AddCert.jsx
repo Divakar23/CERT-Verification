@@ -34,39 +34,39 @@ export default function NotAvailable() {
       const ID=document.querySelector("#ID").value;
       const CName=document.querySelector("#CName").value;
       const Org=document.querySelector("#Org").value;
-      const ExDate=document.querySelector("#ExDate").value;
-      await contract.methods.addUser(Name,ID,ExDate,CName,Org)
-      .send({from:"0x33fdb7680320F831C5C8219056819E22Fb15c62D",gas:2000000});
+      await contract.methods.addUser(Name,ID,CName,Org)
+      .send({from:"0x28049C7500beBCEA77d0e75203776c1Ca64147e7",gas:2000000});
       window.location.reload();
     }
   return (
     <>
-    <div>
+    <div style={{textAlign:'center'}}>
+      <div>
+        <h1>Add the certificate to the blockchain</h1>
+      </div>
+      <div>
         Enter Name:
       </div>
-      <input type='text' id="Name" required='required'></input>
+      <input style={{padding:'10px',borderRadius:'16px'}} type='text' id="Name" required='required'></input>
       <div>
         Enter ID:
       </div>
-      <input type='text' id="ID" required='required'></input>
+      <input style={{padding:'10px',borderRadius:'16px'}} type='text' id="ID" required='required'></input>
       <div>
         Enter Course Name:
       </div>
-      <input type='text' id="CName" required='required'></input>
+      <input style={{padding:'10px',borderRadius:'16px'}} type='text' id="CName" required='required'></input>
       <div>
         Enter Organization:
       </div>
-      <input type='text' id="Org" required='required'></input>
-      <div>
-        Enter Expiration date:
-      </div>
-      <input type='text' id="ExDate" required='required'></input>
+      <input style={{padding:'10px',borderRadius:'16px'}} type='text' id="Org" required='required'></input>
       <div>
         <button onClick={addCertificate}>Submit</button>
       </div>
       <div>
         <NavLink to='/valid'>Validate Certificate</NavLink>
       </div>
+    </div>
     </>
   )
 }

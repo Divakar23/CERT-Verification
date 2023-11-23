@@ -37,6 +37,7 @@ export default function NotAvailable() {
     }
   return (
     <>
+    <div style={{textAlign:'center'}}>
     <div>
         Enter Name:
       </div>
@@ -52,6 +53,7 @@ export default function NotAvailable() {
       <div>
         {data}
       </div>
+    </div>
     </>
   )
 }

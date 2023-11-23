@@ -2,15 +2,12 @@ import React from 'react'
 import { useNavigate, NavLink } from 'react-router-dom';
 import Credentials from "../contracts/Credentials.json";
 import Web3 from "web3";
-import { useState, useEffect } from "react";
+import { useState, useEffect,Link } from "react";
 
 export default function NotAvailable() {
     const navigate = useNavigate();
 
-    const xyz = () => {
-        navigate('/signup');
-        return;
-    }
+    
     const [state, setState] = useState({
         web3: null,
         contract: null,
@@ -40,26 +37,49 @@ export default function NotAvailable() {
     const data = await contract.methods.VerifyCredentials(nusername, npassword).call();
 
     setData(data);
+
+    if(data === "true"){
+      navigate('/valid')
+    }
+    else{
+      window.alert("Enter correct username and password");
+    }
   }
 
     return (
         <>
-    <div>
+    <div style={{textAlign:'center'}}>
+      <div>
+        <h1>
+          Login Page for Users
+        </h1>
+      </div>
         <div>Username:</div>
         <div>
-          <input type='text' id="username" required='required'></input>
+          <input style={{padding:'10px',borderRadius:'16px'}} type='text' id="username" required='required'></input>
         </div>
 
 
         <div>Password:</div>
         <div>
-          <input type='text' id="password" required='required'></input>
+          <input style={{padding:'10px',borderRadius:'16px'}} type='text' id="password" required='required'></input>
         </div>
 
 
         <button onClick={readData} className="button button2">Submit</button>
+
+        <div>
+          <NavLink to='/signup'>Create a new account</NavLink>
+        </div>
+
+
+        <div>
+          <NavLink to='/'>Go back to home page</NavLink>
+        </div>
       </div>
-      <div>{data}</div>
+
+      
+      
       </>
     )
 }

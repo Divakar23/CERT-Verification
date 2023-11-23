@@ -5,6 +5,7 @@ import Web3 from "web3";
 import { useNavigate, NavLink, Navigate } from 'react-router-dom';
 
 export default function NotAvailable() {
+  const navigate = useNavigate();
   const [state, setState] = useState({
     web3: null,
     contract: null,
@@ -31,32 +32,32 @@ async function writeData() {
   const { contract } = state;
   const username = document.querySelector("#username").value;
   const password = document.querySelector("#password").value;
-  console.log(username + password);
   await contract.methods
     .addCredentials(username, password)
-    .send({ from: "0x33fdb7680320F831C5C8219056819E22Fb15c62D", gas: 2000000 });
-  Login();
+    .send({ from: "0x28049C7500beBCEA77d0e75203776c1Ca64147e7", gas: 2000000 });
+  navigate('/login')
+  window.location.reload();
 }
 
-function Login(){
-  Navigate("/login");
-}
+
   return (
     <>
-    <div>
-        <div>Username:</div>
+    <h1 style={{textAlign:'center'}}>Sign Up Page</h1>
+    <div style={{textAlign:'center'}}>
+        <div>New Username:</div>
         <div>
-          <input type='text' id="username" required='required'></input>
+          <input style={{padding:'10px',borderRadius:'16px'}} type='text' id="username" required='required'></input>
         </div>
 
 
-        <div>Password:</div>
+        <div>New Password:</div>
         <div>
-          <input type='text' id="password" required='required'></input>
+          <input style={{padding:'10px',borderRadius:'16px'}} type='text' id="password" required='required'></input>
         </div>
 
-
-        <button onClick={writeData} className="button button2">Submit</button>
+        <div style={{padding:'10px'}}>
+        <button style={{padding:'10px',borderRadius:'16px'}} onClick={writeData} className="button button2">Submit</button>
+        </div>
       </div>
       </>
   )

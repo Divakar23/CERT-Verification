@@ -32,26 +32,36 @@ export default function NotAvailable() {
         const nName=document.querySelector("#Name").value;
         const nID=document.querySelector("#ID").value;
         const data=await contract.methods.checkUser(nName,nID).call();
+        console.log(data)
+        if(data === "legit"){
+          window.alert("Certificate Exists");
+        }
+        else{
+          window.alert("Certificate does not exist");
+        }
         setData(data);
     }
   return (
     <>
-    <div>
+    <div style={{textAlign:'center'}}>
+      <div>
+        <h1>Verify the certificate</h1>
+      </div>
+      <div>
         Enter Name:
       </div>
-      <input type='text' id="Name" required='required'></input>
+      <input style={{padding:'10px',borderRadius:'16px'}} type='text' id="Name" required='required'></input>
       <div>
         Enter ID:
       </div>
-      <input type='text' id="ID" required='required'></input>
+      <input style={{padding:'10px',borderRadius:'16px'}} type='text' id="ID" required='required'></input>
       
       <div>
         <button onClick={ValidCertificate}>Submit</button>
       </div>
-      <div>
-        {data}
-      </div>
-      <NavLink to='/login'>Back to Login Page</NavLink>
+      
+      <NavLink to='/'>Back to Home Page</NavLink>
+    </div>
     </>
   )
 }

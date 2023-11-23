@@ -5,6 +5,7 @@ import { useNavigate, NavLink } from 'react-router-dom';
 import { useState, useEffect } from "react";
 
 export default function NotAvailable() {
+    const navigate=useNavigate();
     const [state, setState] = useState({
         web3: null,
         contract: null,
@@ -32,33 +33,46 @@ export default function NotAvailable() {
     const npassword = document.querySelector("#password").value;
     const nid = document.querySelector("#id").value;
     const data1 = await contract.methods.adminVerifyCredentials(nusername, npassword, nid).call();
-    console.log(data1);
+    if(data1 === 'true'){
+      navigate('/add')
+    }
+    else{
+      window.alert('Enter correct username and password');
+    }
     setData1(data1);
   }
 
   return (
     <>
-    <div>
+    <div style={{textAlign:'center'}}>
+      <div>
+        <h1>Admin Login Page</h1>
+      </div>
         <div>Username:</div>
         <div>
-          <input type='text' id="username" required='required'></input>
+          <input style={{padding:'10px',borderRadius:'16px'}} type='text' id="username" required='required'></input>
         </div>
 
 
         <div>ID:</div>
         <div>
-          <input type='text' id="id" required='required'></input>
+          <input style={{padding:'10px',borderRadius:'16px'}} type='text' id="id" required='required'></input>
         </div>
 
         <div>Password:</div>
         <div>
-          <input type='text' id="password" required='required'></input>
+          <input style={{padding:'10px',borderRadius:'16px'}} type='text' id="password" required='required'></input>
         </div>
 
-
+        <div style={{margin:'10px'}}>
         <button onClick={admin_readData} className="button button2">Submit</button>
+        </div>
       </div>
-      <div>{data1}</div>
+      <div style={{textAlign:'center'}}></div>
+
+      <div style={{textAlign:'center'}}>
+          <NavLink to='/asignup'>Create a new admin account</NavLink>
+        </div>
       </>
   )
 }
