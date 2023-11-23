@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from "react";
 import Credentials from "../contracts/Credentials.json";
 import Web3 from "web3";
-import { useNavigate, NavLink } from 'react-router-dom';
+import { useNavigate, NavLink, Navigate } from 'react-router-dom';
 
 export default function NotAvailable() {
   const [state, setState] = useState({
@@ -37,7 +37,10 @@ async function admin_writeData() {
       .adminaddCredentials(id, username, password)
       .send({ from: "0x33fdb7680320F831C5C8219056819E22Fb15c62D", gas: 2000000 });
     window.location.reload();
+    
   }
+
+
   return (
     <>
     <div>

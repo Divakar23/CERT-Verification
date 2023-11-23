@@ -8,6 +8,9 @@ import Login from "./screens/Login"
 import NotFound from "./screens/NotFound"
 import SignUp from "./screens/SignUp"
 import AdminSignUp from "./screens/Admin_SignUp"
+import Validcert from "./screens/ValidCert"
+import Addcert from "./screens/AddCert"
+import Deletecert from "./screens/DeleteCert"
 
 
 function App() {
@@ -20,6 +23,9 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/admin' element={<Admin />} />
         <Route path='/asignup' element={<AdminSignUp />}/>
+        <Route path='/valid' element={<Validcert />}/>
+        <Route path='/add' element={<Addcert />}/>
+        <Route path='/delete' element={<Deletecert />}/>
         <Route path='*' element={<NotFound />} />
       </Routes>
     </>
