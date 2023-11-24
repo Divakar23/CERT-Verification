@@ -35,7 +35,7 @@ export default function NotAvailable() {
       const CName=document.querySelector("#CName").value;
       const Org=document.querySelector("#Org").value;
       await contract.methods.addUser(Name,ID,CName,Org)
-      .send({from:"0x28049C7500beBCEA77d0e75203776c1Ca64147e7",gas:2000000});
+      .send({from:"0x79907B1Db3B8F3d9c473FC085047E6D3d7F557b6",gas:2000000});
       window.location.reload();
     }
   return (
@@ -61,7 +61,7 @@ export default function NotAvailable() {
       </div>
       <input style={{padding:'10px',borderRadius:'16px'}} type='text' id="Org" required='required'></input>
       <div>
-        <button onClick={addCertificate}>Submit</button>
+        <button onClick={addCertificate} id="Submit">Submit</button>
       </div>
       <div>
         <NavLink to='/valid'>Validate Certificate</NavLink>

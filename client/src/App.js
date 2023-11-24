@@ -11,6 +11,7 @@ import AdminSignUp from "./screens/Admin_SignUp"
 import Validcert from "./screens/ValidCert"
 import Addcert from "./screens/AddCert"
 import Deletecert from "./screens/DeleteCert"
+import PDF from "./screens/pdf"
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path='/valid' element={<Validcert />}/>
         <Route path='/add' element={<Addcert />}/>
         <Route path='/delete' element={<Deletecert />}/>
+        <Route path='/pdf' element={<PDF />}/>
         <Route path='*' element={<NotFound />} />
       </Routes>
     </>

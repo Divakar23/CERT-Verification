@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Web3 from "web3";
 import { useNavigate, NavLink } from 'react-router-dom';
 import Valid from "../contracts/valid.json";
+import "../App.css"
 
 
 export default function NotAvailable() {
@@ -56,11 +57,12 @@ export default function NotAvailable() {
       </div>
       <input style={{padding:'10px',borderRadius:'16px'}} type='text' id="ID" required='required'></input>
       
-      <div>
-        <button onClick={ValidCertificate}>Submit</button>
+      <div style={{display:'block',padding:'20px'}}>
+        <button onClick={ValidCertificate} id="Submit">Submit</button>
       </div>
       
-      <NavLink to='/'>Back to Home Page</NavLink>
+      <NavLink to='/' style={{display:'block'}}>Back to Home Page</NavLink>
+      <NavLink to='/pdf' style={{display:'block'}}>Download the Certificate</NavLink>
     </div>
     </>
   )

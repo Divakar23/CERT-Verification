@@ -4,6 +4,7 @@ import Credentials from "../contracts/Credentials.json";
 import Web3 from "web3";
 import { useState, useEffect,Link } from "react";
 
+
 export default function NotAvailable() {
     const navigate = useNavigate();
 
@@ -48,7 +49,7 @@ export default function NotAvailable() {
 
     return (
         <>
-    <div style={{textAlign:'center'}}>
+      <div style={{textAlign:'center'}} className="Login">
       <div>
         <h1>
           Login Page for Users
@@ -65,9 +66,9 @@ export default function NotAvailable() {
           <input style={{padding:'10px',borderRadius:'16px'}} type='text' id="password" required='required'></input>
         </div>
 
-
-        <button onClick={readData} className="button button2">Submit</button>
-
+        <div>
+        <button onClick={readData} id="Submit">Submit</button>
+        </div>
         <div>
           <NavLink to='/signup'>Create a new account</NavLink>
         </div>
@@ -78,8 +79,7 @@ export default function NotAvailable() {
         </div>
       </div>
 
-      
-      
+
       </>
     )
 }

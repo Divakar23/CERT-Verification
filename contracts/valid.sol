@@ -73,5 +73,44 @@ contract valid{
         return "not deleted";
     }
 
+    function getHash(string memory _id) public view returns (bytes32){
+        for(uint i=0;i<c.length;i++){
+            if(strcmp(c[i].id,_id)){
+                return keccak256(bytes(abi.encodePacked(c[i].name,c[i].id)));
+            }
+        }
+        return 0x0;
+    }
+
+    function getName(string memory _id) public view returns(string memory){
+        for(uint i=0;i<c.length;i++){
+            if(strcmp(c[i].id,_id)){
+                return c[i].name;
+            }
+        }
+        return "nope";
+    }
+
+    function getCourse(string memory _id) public view returns(string memory){
+        for(uint i=0;i<c.length;i++){
+            if(strcmp(c[i].id,_id)){
+                return c[i].course_name;
+            }
+        }
+        return "nope";
+    }
+
+    
+
+
+
+    function memcmp(bytes memory a, bytes memory b) internal pure returns(bool){
+        return (a.length == b.length) && (keccak256(a) == keccak256(b));
+    }
+
+     function strcmp(string memory a, string memory b) internal pure returns(bool){
+        return memcmp(bytes(a), bytes(b));
+    }
+
 }
 

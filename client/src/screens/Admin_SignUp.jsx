@@ -35,8 +35,8 @@ async function admin_writeData() {
     const id = document.querySelector("#id").value;
     await contract.methods
       .adminaddCredentials(id, username, password)
-      .send({ from: "0x28049C7500beBCEA77d0e75203776c1Ca64147e7", gas: 2000000 });
-    navigate('/admin')
+      .send({ from: "0x79907B1Db3B8F3d9c473FC085047E6D3d7F557b6", gas: 2000000 });
+    navigate('/admin');
     
   }
 
@@ -47,24 +47,24 @@ async function admin_writeData() {
       <div>
         <h1>Sign up page for admin</h1>
       </div>
-        <div>Username:</div>
+        <div className='text'>Username:</div>
         <div>
           <input style={{padding:'10px',borderRadius:'16px'}} type='text' id="username" required='required'></input>
         </div>
 
 
-        <div>ID:</div>
+        <div className='text'>ID:</div>
         <div>
           <input style={{padding:'10px',borderRadius:'16px'}} type='text' id="id" required='required'></input>
         </div>
 
-        <div>Password:</div>
+        <div className='text'>Password:</div>
         <div>
           <input style={{padding:'10px',borderRadius:'16px'}} type='text' id="password" required='required'></input>
         </div>
 
 
-        <button onClick={admin_writeData} className="button button2">Submit</button>
+        <button onClick={admin_writeData} id="Submit">Submit</button>
       </div>
       </>
   )

@@ -65,7 +65,7 @@ export default function NotAvailable() {
         </div>
 
         <div style={{margin:'10px'}}>
-        <button onClick={admin_readData} className="button button2">Submit</button>
+        <button onClick={admin_readData} id="Submit">Submit</button>
         </div>
       </div>
       <div style={{textAlign:'center'}}></div>

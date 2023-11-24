@@ -8,13 +8,13 @@ export default function NotAvailable() {
     <h1 style={{color: "227, 85, 8", textAlign: 'center', marginTop: 10 }} > Home Page</h1>
 
     <div style={{textAlign:'center', marginBottom:'20px'}}>
-    <Link  to="/login" >
+    <Link  to="/login" className='a'>
       Login as user
       </Link>
     </div>
     
     <div style={{textAlign:'center'}}>
-    <Link  to="/admin" >
+    <Link  to="/admin" className='a' >
       Login as admin
       </Link>
     </div>

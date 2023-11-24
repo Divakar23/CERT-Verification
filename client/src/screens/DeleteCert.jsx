@@ -48,7 +48,7 @@ export default function NotAvailable() {
       <input type='text' id="ID" required='required'></input>
       
       <div>
-        <button onClick={DeleteCertificate}>Submit</button>
+        <button onClick={DeleteCertificate} id="Submit">Submit</button>
       </div>
       <div>
         {data}

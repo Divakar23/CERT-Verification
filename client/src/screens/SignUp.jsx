@@ -34,7 +34,7 @@ async function writeData() {
   const password = document.querySelector("#password").value;
   await contract.methods
     .addCredentials(username, password)
-    .send({ from: "0x28049C7500beBCEA77d0e75203776c1Ca64147e7", gas: 2000000 });
+    .send({ from: "0x79907B1Db3B8F3d9c473FC085047E6D3d7F557b6", gas: 2000000 });
   navigate('/login')
   window.location.reload();
 }
@@ -56,7 +56,7 @@ async function writeData() {
         </div>
 
         <div style={{padding:'10px'}}>
-        <button style={{padding:'10px',borderRadius:'16px'}} onClick={writeData} className="button button2">Submit</button>
+        <button style={{padding:'10px',borderRadius:'16px'}} onClick={writeData} id='Submit'>Submit</button>
         </div>
       </div>
       </>
