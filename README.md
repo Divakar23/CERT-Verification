@@ -1,4 +1,4 @@
-# Blockchain
+# Decentralized Certificate Generation and Verification System using Blockchain
 
 Run front end:
 ```
